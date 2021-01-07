@@ -1,0 +1,12 @@
+{
+  "name": "extension-unityads",
+  "url": "",
+  "license": "MIT",
+  "tags": ["android","games","openfl","unityads","unity","ads"],
+  "description": "",
+  "version": "1.0.0",
+  "releasenote": "",
+  "contributors": ["manjav"],
+  "dependencies": {
+  }
+}
