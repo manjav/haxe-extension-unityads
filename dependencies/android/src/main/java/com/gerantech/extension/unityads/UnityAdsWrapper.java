@@ -68,4 +68,21 @@ public class UnityAdsWrapper extends Extension {
 		UnityAds.show(mainActivity, placementId);
 	}
 
+	/*public static void showBanner(String placementId) {
+		if (bannerShowing) {
+			UnityBanners.destroy();
+		} else {
+			UnityBanners.setBannerPosition(BannerPosition.);
+			UnityBanners.setBannerListener(UnityAdsFragment.this);
+			UnityBanners.loadBanner(mainActivity, placementId);
+		}
+	}*/
+
+	/*public static boolean canShowAd() {
+		if (UnityAds.canShow() && UnityAds.canShowAds()) {
+			return true;
+		} else {
+			return false;
+		}
+	}*/
 }
