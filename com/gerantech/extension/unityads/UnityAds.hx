@@ -38,6 +38,14 @@ class UnityAds {
 		function(o:UnityAds, s:String, b1:Bool, b2:Bool):Void {};
 		#end
 
+	private static var libShowAd:String->Void =
+		#if android
+		JNI.createStaticMethod("com/gerantech/extension/unityads/UnityAdsWrapper", "showAd", "(Ljava/lang/String;)V");
+		#elseif ios
+		Lib.load("openflunityads", "openflunityads_showAd");
+		#else
+		function(s:String = ""):Void {};
+		#end
 
 	// event handlers
 	public function new() {}

@@ -55,6 +55,17 @@ public class UnityAdsWrapper extends Extension {
 			}
 		});
 	}
+
+	public static void showAd(String placementId) {
+		PlayerMetaData playerMetaData = new PlayerMetaData(mainContext);
+		playerMetaData.setServerId("rikshot");
+		playerMetaData.commit();
+
+		MediationMetaData ordinalMetaData = new MediationMetaData(mainContext);
+		ordinalMetaData.setOrdinal(ordinal++);
+		ordinalMetaData.commit();
+
+		UnityAds.show(mainActivity, placementId);
 	}
 
 }
