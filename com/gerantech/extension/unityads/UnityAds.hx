@@ -27,4 +27,9 @@ class UnityAds {
 	// event handlers
 	public function new() {}
 
+	@:keep
+	public function listen(type:String, arg0:Dynamic, arg1:Dynamic):Void {
+		if (type == "init" && onInit != null)
+			onInit(arg0, arg1);
+	}
 }
