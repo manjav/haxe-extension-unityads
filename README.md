@@ -28,3 +28,10 @@ Exposed methods are currently:
     };
 ```
 
+When even ads are ready, return a placement-id with which you can showAds();
+```Haxe
+		UnityAds.onAdReady = function(placementId:String):Void {
+			trace("onAdReady => " + placementId);
+			// UnityAds.showAd(placementId);
+		};
+```
