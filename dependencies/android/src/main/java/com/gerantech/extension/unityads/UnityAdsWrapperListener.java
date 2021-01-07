@@ -12,4 +12,14 @@ public class UnityAdsWrapperListener implements IUnityAdsListener/*, IUnityBanne
 		send("init", succeed, message);
 	}
 
+	@Override
+	public void onUnityAdsReady(String placementId) {
+		send("ready", placementId, "");
+	}
+
+
+	private void send(String type, Object arg0, Object arg1) {
+		Log.w(TAG, arg0 + " " + arg1);
+		UnityAdsWrapper.callbackObject.call3("listen", type, arg0, arg1);
+	}
 	}
