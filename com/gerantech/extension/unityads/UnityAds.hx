@@ -1,13 +1,5 @@
 package com.gerantech.extension.unityads;
 
-#if cpp
-import cpp.Lib;
-#elseif neko
-import neko.Lib;
-#elseif (android && openfl)
-import lime.system.JNI;
-#end
-
 class UnityAds {
 	///callbacks haxe
 	public static var onInit:Bool->String->Void = null;
@@ -40,15 +32,15 @@ class UnityAds {
 
 	////java binings
 	private static var libInit:UnityAds->String->Bool->Bool->Void =
-		#if android
-		JNI.createStaticMethod("com/gerantech/extension/unityads/UnityAdsWrapper", "init", "(Lorg/haxe/lime/HaxeObject;Ljava/lang/String;ZZ)V");
+		#if (android && openfl)
+		lime.system.JNI.createStaticMethod("com/gerantech/extension/unityads/UnityAdsWrapper", "init", "(Lorg/haxe/lime/HaxeObject;Ljava/lang/String;ZZ)V");
 		#else
 		function(o:UnityAds, s:String, b1:Bool, b2:Bool):Void {};
 		#end
 
 	private static var libShowAd:String->Void =
-		#if android
-		JNI.createStaticMethod("com/gerantech/extension/unityads/UnityAdsWrapper", "showAd", "(Ljava/lang/String;)V");
+		#if (android && openfl)
+		lime.system.JNI.createStaticMethod("com/gerantech/extension/unityads/UnityAdsWrapper", "showAd", "(Ljava/lang/String;)V");
 		#else
 		function(s:String = ""):Void {};
 		#end
