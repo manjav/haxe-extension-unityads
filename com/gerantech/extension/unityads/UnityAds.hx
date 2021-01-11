@@ -43,8 +43,6 @@ class UnityAds {
 	private static var libShowAd:String->Void =
 		#if android
 		JNI.createStaticMethod("com/gerantech/extension/unityads/UnityAdsWrapper", "showAd", "(Ljava/lang/String;)V");
-		#elseif ios
-		Lib.load("openflunityads", "openflunityads_showAd");
 		#else
 		function(s:String = ""):Void {};
 		#end
