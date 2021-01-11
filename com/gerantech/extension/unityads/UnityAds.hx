@@ -16,6 +16,7 @@ class UnityAds {
 	public static var onAdFinish:String->String->Void = null;
 	public static var onAdError:String->String->Void = null;
 
+	private static var _instance:UnityAds = null;
 	private static var placements:Map<String, Bool> = new Map();
 
 	public static function init(gameId:String, testMode:Bool = false, debugMode:Bool = false):Void {
@@ -24,6 +25,11 @@ class UnityAds {
 
 	public static function hasAd(placementId:String):Bool {
 		return placements.exists(placementId);
+	}
+
+	public static function showAd(placementId:String):Void {
+		placements.remove(placementId);
+		libShowAd(placementId);
 	}
 
 	public static function getInstance():UnityAds {
