@@ -35,3 +35,12 @@ When even ads are ready, return a placement-id with which you can showAds();
 			// UnityAds.showAd(placementId);
 		};
 ```
+
+Other callbacks
+```Haxe
+		UnityAds.onAdStart = function(placementId:String):Void {
+			trace("onAdStart => " + placementId);
+		};
+		UnityAds.onAdFinish = function(placementId:String, result:String):Void {
+			trace("onAdFinish => " + placementId + " result => " + result);
+		};

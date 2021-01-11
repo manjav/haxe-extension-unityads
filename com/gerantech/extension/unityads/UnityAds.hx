@@ -57,5 +57,9 @@ class UnityAds {
 		else if (type == "ready" && onAdReady != null) {
 			placements.set(arg0, true);
 			onAdReady(arg0);
+		} else if (type == "start" && onAdStart != null)
+			onAdStart(arg0);
+		else if (type == "finish" && onAdFinish != null)
+			onAdFinish(arg0, arg1);
 	}
 }

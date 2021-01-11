@@ -17,6 +17,16 @@ public class UnityAdsWrapperListener implements IUnityAdsListener/*, IUnityBanne
 		send("ready", placementId, "");
 	}
 
+	@Override
+	public void onUnityAdsStart(String placementId) {
+		send("start", placementId, "");
+	}
+
+	@Override
+	public void onUnityAdsFinish(String placementId, UnityAds.FinishState result) {
+		send("finish", placementId, result.toString());
+	}
+
 	/*@Override
 	public void onUnityBannerLoaded(String placementId, View view) {	}
 	@Override
