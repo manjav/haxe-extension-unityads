@@ -14,6 +14,7 @@ public class UnityAdsWrapper extends Extension {
 	private static String gameId;
 	private static boolean initialized;
 	public static HaxeObject callbackObject;
+	private static UnityAdsWrapperListener listener;
 
 	private static int ordinal = 1;
 

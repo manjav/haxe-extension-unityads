@@ -27,6 +27,11 @@ public class UnityAdsWrapperListener implements IUnityAdsListener/*, IUnityBanne
 		send("finish", placementId, result.toString());
 	}
 
+	@Override
+	public void onUnityAdsError(UnityAds.UnityAdsError error, String message) {
+		send("error", error.toString(), message);
+	}
+
 	/*@Override
 	public void onUnityBannerLoaded(String placementId, View view) {	}
 	@Override
@@ -44,4 +49,4 @@ public class UnityAdsWrapperListener implements IUnityAdsListener/*, IUnityBanne
 		Log.w(TAG, arg0 + " " + arg1);
 		UnityAdsWrapper.callbackObject.call3("listen", type, arg0, arg1);
 	}
-	}
+}

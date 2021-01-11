@@ -12,7 +12,9 @@ class UnityAds {
 	///callbacks haxe
 	public static var onInit:Bool->String->Void = null;
 	public static var onAdReady:String->Void = null;
-	public static var _instance:UnityAds = null;
+	public static var onAdStart:String->Void = null;
+	public static var onAdFinish:String->String->Void = null;
+	public static var onAdError:String->String->Void = null;
 
 	private static var placements:Map<String, Bool> = new Map();
 
@@ -61,5 +63,7 @@ class UnityAds {
 			onAdStart(arg0);
 		else if (type == "finish" && onAdFinish != null)
 			onAdFinish(arg0, arg1);
+		else if (type == "error" && onAdError != null)
+			onAdError(arg0, arg1);
 	}
 }
