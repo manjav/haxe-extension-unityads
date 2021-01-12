@@ -18,35 +18,35 @@ Add to `project.xml`:
 And import into your project (haxe) with:
   
 ```Haxe
-    import com.gerantech.extension.unityads.UnityAds;
+import com.gerantech.extension.unityads.UnityAds;
 ```
 
 Exposed methods are currently:
 ```Haxe
-    UnityAds.onInit = function(succeed:Bool, message:String):Void {
-        trace("onInit => " + succeed, message);
-    };
+UnityAds.onInit = function(succeed:Bool, message:String):Void {
+	trace("onInit => " + succeed, message);
+};
 ```
 
 When even ads are ready, return a placement-id with which you can showAds();
 ```Haxe
-		UnityAds.onAdReady = function(placementId:String):Void {
-			trace("onAdReady => " + placementId);
-			// UnityAds.showAd(placementId);
-		};
+UnityAds.onAdReady = function(placementId:String):Void {
+	trace("onAdReady => " + placementId);
+	// UnityAds.showAd(placementId);
+};
 ```
 
 Other callbacks
 ```Haxe
-		UnityAds.onAdStart = function(placementId:String):Void {
-			trace("onAdStart => " + placementId);
-		};
-		UnityAds.onAdFinish = function(placementId:String, result:String):Void {
-			trace("onAdFinish => " + placementId + " result => " + result);
-		};
-		UnityAds.onAdError = function(error:String, message:String):Void {
-			trace("onAdError => " + error + " message => " + message);
-		};
+UnityAds.onAdStart = function(placementId:String):Void {
+	trace("onAdStart => " + placementId);
+};
+UnityAds.onAdFinish = function(placementId:String, result:String):Void {
+	trace("onAdFinish => " + placementId + " result => " + result);
+};
+UnityAds.onAdError = function(error:String, message:String):Void {
+	trace("onAdError => " + error + " message => " + message);
+};
 
-		UnityAds.init("3974257", true, true); 
+UnityAds.init("3974257", true, true); 
 ```
